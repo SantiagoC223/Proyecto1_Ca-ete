@@ -1,0 +1,38 @@
+int VA;
+int RD3;
+
+
+void setup()
+{
+  
+  
+  
+  pinMode( A0 , INPUT );
+  pinMode( 13 , OUTPUT );
+  Serial.begin(9800);
+  
+  
+  
+}
+
+void loop()
+{
+  
+  
+  VA = analogRead( A0 );
+  RD3  = map(VA , 256 , 767, 1 , 10000 );
+  
+  digitalWrite( 13 , HIGH );
+  delay( RD3 );
+  digitalWrite( 13 , LOW );
+  delay( RD3 );
+  
+  //Serial.println( VA );
+  //Serial.println("-----");
+  //Serial.print( RD3 );
+  //Serial.println("  ");
+  
+  
+}
+
+

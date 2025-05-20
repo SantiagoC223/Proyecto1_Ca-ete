@@ -1,0 +1,30 @@
+int RD3 ;
+int VA ;
+
+void setup()
+{
+  
+  pinMode( A5  , INPUT);
+  pinMode( 9 ,  OUTPUT);
+  
+  Serial.begin(9800);
+  
+  
+}
+
+void loop()
+{
+  
+  
+  VA = analogRead( A5 );
+  
+  Serial.println( VA );
+  
+  // map ( Valor A transformar , valmin ,valmax , valminnew  ,valmaxnew );
+  RD3 = map( VA , 1 , 1022 , 0 , 255 );
+  Serial.println(RD3);
+  
+  analogWrite( 9 , RD3 );
+  
+  
+}

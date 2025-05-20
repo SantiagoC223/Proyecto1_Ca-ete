@@ -1,0 +1,80 @@
+void setup() {
+  pinMode( 2 , OUTPUT);
+  pinMode( 3 , OUTPUT);
+  pinMode( 4 , OUTPUT);
+  
+  pinMode( 5 , OUTPUT);
+  pinMode( 6 , OUTPUT);
+  pinMode( 7 , OUTPUT);
+
+}
+
+void loop() {
+
+  analogWrite( 5 , 0 );
+  analogWrite( 6 , 0 );
+  analogWrite( 7 , 0 );
+  analogWrite( 3 , 0 );
+  analogWrite( 4 , 0 );
+  analogWrite( 2 , 255);
+  delay(1500);
+  analogWrite( 2 , 180);
+  analogWrite( 3 , 255);
+  analogWrite( 4 , 180);
+  delay(1500);
+  analogWrite( 2 , 0);
+  analogWrite( 3 , 0);
+  analogWrite( 4 , 255);
+  delay(1500);
+  analogWrite( 2 , 255);
+  analogWrite( 3 , 255);
+  analogWrite( 4 , 0 );
+  delay(1500);
+  analogWrite( 2 , 0);
+  analogWrite( 3 , 255);
+  analogWrite( 4 , 0 );
+  delay(1500);
+  analogWrite( 2 , 255);
+  analogWrite( 3 , 255);
+  analogWrite( 4 , 255);
+  delay(1500);
+  analogWrite( 2 , 255);
+  analogWrite( 3 , 0 );
+  analogWrite( 4 , 255);
+  delay(3500);
+  
+  
+  
+  analogWrite( 3 , 0 );
+  analogWrite( 4 , 0 );
+  analogWrite( 2 , 0 );
+  analogWrite( 5 , 255 );
+  analogWrite( 6 , 0 );
+  analogWrite( 7 , 0 );
+  delay(1500);
+  analogWrite( 5 , 180);
+  analogWrite( 6 , 255);
+  analogWrite( 7 , 180);
+  delay(1500);
+  analogWrite( 5 , 0);
+  analogWrite( 6 , 0);
+  analogWrite( 7 , 255);
+  delay(1500);
+  analogWrite( 5 , 255);
+  analogWrite( 6 , 255);
+  analogWrite( 7 , 0 );
+  delay(1500);
+  analogWrite( 5 , 0);
+  analogWrite( 6 , 255);
+  analogWrite( 7 , 0 );
+  delay(1500);
+  analogWrite( 5 , 255);
+  analogWrite( 6 , 255);
+  analogWrite( 7 , 255);
+  delay(1500);
+  analogWrite( 5 , 255);
+  analogWrite( 6 , 0 );
+  analogWrite( 7 , 255);
+  delay(1500);
+    
+}
