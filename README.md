@@ -6,4 +6,4 @@ correo: santiago.ugazet32@gmail.com
 
 Docente : Gonzalo Consorti
 
-El Trabajo Se Encuentra En La Carpeta Derivada De Main "HEKO"
+he aqui la primera guia, hecha en base a todos mis conocimientos y todo lo que usted me ah ayudado.
