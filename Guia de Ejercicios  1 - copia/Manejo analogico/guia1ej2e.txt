@@ -1,0 +1,44 @@
+int VA1;
+int VA2;
+int VA3;
+
+int RD31;
+int RD32;
+int RD33;
+
+
+void setup()
+{
+  
+  pinMode( A0 , INPUT);
+  pinMode( A1 , INPUT);
+  pinMode( A2 , INPUT);
+  
+  pinMode( 13 , OUTPUT);
+  pinMode( 11 , OUTPUT);
+  pinMode( 12 , OUTPUT);
+  
+  Serial.begin( 9800 );
+  
+  
+}
+
+void loop()
+{
+  VA1 = analogRead( A0 );
+  VA2 = analogRead( A1 );
+  VA3 = analogRead( A2 );
+  
+  RD31 = map(VA1 , 1 , 1022, 0 , 255 );
+  RD32 = map(VA2 , 1 , 1022, 0 , 255 );
+  RD33 = map(VA3 , 1 , 1022, 0 , 255 );
+  
+  analogWrite( 13 , RD31 );
+  analogWrite( 12 , RD32 );
+  analogWrite( 11 , RD33 );
+  
+
+  
+}
+
+
