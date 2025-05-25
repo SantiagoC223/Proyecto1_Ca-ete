@@ -6,4 +6,4 @@ correo: santiago.ugazet32@gmail.com
 
 Docente : Gonzalo Consorti
 
-El Trabajo Se Encuentra En La Carpeta Derivada De Main "HEKO"
+Aqui el TP 3 , No me acordaba de como usar ciertos censoresn no estaban en los videos de clase, la clase que viene averigupo y lo actualizo.
