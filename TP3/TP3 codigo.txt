@@ -1,0 +1,101 @@
+int TMP = A0;
+
+int SL = A1 ;
+  
+  
+  
+void setup()
+{
+  pinMode( TMP , INPUT);
+  
+  pinMode(SL , INPUT );
+  
+  pinMode( 2 , OUTPUT );
+  pinMode( 3 , OUTPUT );
+  pinMode( 4 , OUTPUT );
+  
+  pinMode( 5 , OUTPUT );
+  
+  Serial.begin(9800);
+  
+  
+  
+}
+
+void loop()
+{
+  
+  
+  
+  int VL = analogRead( SL );
+  
+  int PDL = map( VL , 713 , 1022 , 100 , 0 ) ;
+  PDL = constrain( PDL , 0 , 100  );
+  
+  //Serial.println( PDL );
+  
+  if(PDL <=19)
+  {
+  
+  
+  	float V = analogRead(TMP);
+  
+  	V = V * 5.0 ;
+    
+  	V /= 1024.0 ;
+    
+  
+  	float T = (V - 0.5) * 100 ;
+  
+  	T = round( T );
+    
+  
+  
+  	delay( 1 );
+  
+  
+  
+  
+  
+  
+  
+  	
+  
+  	if( T >= 39)
+  	{
+  	
+  		digitalWrite( 2 , HIGH);
+  		analogWrite( 5 , 100 );
+    	delay(500);
+    	analogWrite( 5 , 0 );
+    	delay(500);
+    
+    	Serial.print( "TEmperatura ACtual : " );
+  		Serial.print( T );
+    	Serial.println( " Grados HAY ALGUIEN MANOSEANDO LA OBRA" );
+    
+  	}else{
+  	
+  		digitalWrite( 2 , LOW);
+  		analogWrite( 5 , 0 );
+    	Serial.print( "TEmperatura ACtual : " );
+  		Serial.print( T );
+    	Serial.println( " Grados NO hay moros en la costa" );
+  	}
+  
+  
+  	
+  
+  }else{
+    
+   Serial.print("MUSEO DE DIA XDDDDDDDDDDDDD") ;
+    
+  }
+  
+  
+  
+  
+  
+  
+  
+}
