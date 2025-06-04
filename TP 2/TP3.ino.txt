@@ -1,0 +1,93 @@
+int BUZZER = 11;
+int VP ;
+int RD3 ;
+bool B ;
+
+void setup()
+{
+  pinMode( 2 , OUTPUT);
+  pinMode( 3 , OUTPUT);
+  pinMode( 4 , OUTPUT);
+  pinMode( 5 , OUTPUT);
+  pinMode( 6 , OUTPUT);
+  pinMode( 7 , OUTPUT);
+  pinMode( 8 , OUTPUT);
+  pinMode( 9 , OUTPUT);
+  pinMode( 10 , OUTPUT);
+  pinMode( BUZZER , OUTPUT);
+  pinMode( A0 , INPUT);
+  
+  pinMode(12 , INPUT);
+  
+  Serial.begin(9800);
+  
+}
+
+void loop()
+{
+  
+  B = digitalRead( 12 );
+  Serial.println( B );
+  
+  if(B == HIGH){
+  
+  	VP = analogRead(A0);
+  	//Serial.println(VP);
+  	RD3 = map(VP , 1,1022 ,0,3000 );
+  	//Serial.println(RD3);
+  
+  
+  	analogWrite(BUZZER, 100);
+  	delay(100);
+  	analogWrite(BUZZER, -1);
+  
+  	analogWrite( 8 , 0);
+  	analogWrite( 9 , 0);
+  	analogWrite( 10 , 0);
+  	analogWrite( 2 , 255); 
+  
+  
+  	delay(RD3);
+  
+
+  	analogWrite(BUZZER, 100);
+  	delay(100);
+  	analogWrite(BUZZER, -1);
+  	analogWrite( 2 , 0);
+  	analogWrite( 5 , 255);
+  	analogWrite( 6 , 255);
+  	analogWrite( 7 , 0);
+
+  
+  
+  	delay(RD3);
+        
+  	analogWrite(BUZZER, 100);
+  	delay(100);
+  	analogWrite(BUZZER, -1);      
+  	analogWrite( 5 , 0);
+  	analogWrite( 6 , 0);
+  	analogWrite( 7 , 0);
+  	analogWrite( 8 , 0);
+  	analogWrite( 9 , 255);
+  	analogWrite( 10 , 255);
+         
+  	delay(RD3);
+  
+  }else{
+    
+    analogWrite(BUZZER, 0);
+    analogWrite( 2 , 0);
+    analogWrite( 3 , 0);
+    analogWrite( 4 , 0);
+    analogWrite( 5 , 0);
+    analogWrite( 6 , 0);
+    analogWrite( 7 , 0);
+    analogWrite( 8 , 0);
+    analogWrite( 9 , 0);
+    analogWrite( 10 , 0);
+    
+    
+  }
+  
+}
