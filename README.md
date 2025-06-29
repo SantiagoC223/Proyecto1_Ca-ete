@@ -6,4 +6,4 @@ correo: santiago.ugazet32@gmail.com
 
 Docente : Gonzalo Consorti
 
-El Trabajo Se Encuentra En La Carpeta Derivada De Main "HEKO"
+TP 5 : Potencia.
