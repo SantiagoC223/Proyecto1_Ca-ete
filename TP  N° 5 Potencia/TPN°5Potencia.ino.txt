@@ -1,0 +1,81 @@
+int TMP = 0;
+
+int PIR = 13 ;
+
+int MOV ;
+
+void setup()
+{
+  pinMode( TMP , INPUT);
+  pinMode(PIR , INPUT);
+  
+  pinMode(13 , INPUT);
+  pinMode(12 , OUTPUT);
+  
+  pinMode( 9 , OUTPUT);
+  
+  
+  Serial.begin(9600);
+  
+  
+}
+
+void loop()
+{
+  float V = analogRead(TMP);
+  
+  V = V * 5.0 ;
+    
+  V /= 1024.0 ;
+    
+  float T = ((V - 0.5) * 10) * 10 ;
+  
+  T = round( T );
+    
+  delay( 1 );
+  
+  MOV = digitalRead(PIR);
+  
+  analogWrite( 9 , 120);
+  
+  
+  
+  if (MOV == 1 ){
+    
+    digitalWrite(12 , HIGH);
+    //Serial.println("Hay Movimiento ! ");
+
+    if (T  < 15 ){
+    	analogWrite( 9 , 50);
+      	Serial.println(50);
+    }else if ( T > 15 && T < 20 ) {
+      	
+    	analogWrite( 9 , 100);
+      	Serial.println(100);
+    }else if ( T > 20 && T < 30 ) {
+      	
+  		analogWrite( 9 , 150);
+      	Serial.println(150);
+    }else{
+      	
+    	analogWrite( 9 , 255);
+      	Serial.println(255);
+    }
+  
+  }else{
+    //Serial.println("No Hay Movimiento");
+ 	digitalWrite(12 , LOW);
+    
+  }
+  
+  
+  
+  
+  //Muy facil este trabajo profe AH
+  
+  
+  //Serial.print("la temperatura actual es :");
+  //Serial.print(T);
+  //Serial.println(" Celcius");
+  
+}
