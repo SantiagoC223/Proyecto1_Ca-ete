@@ -1,0 +1,116 @@
+int trig = 12;
+int eco = 13;
+int tiempo;
+int distancia;
+
+int BUZ = 11;
+
+bool B ;
+
+int EstadoAlarma ;
+
+#include <LiquidCrystal.h>
+
+
+LiquidCrystal LCD( 2 ,3 , 5 , 7 , 6 , 4);
+
+void setup()
+{
+  Serial.begin(9400);
+  pinMode(trig, OUTPUT);
+  pinMode(eco, INPUT);
+  
+  LCD.begin (16 , 2);
+  LCD.setCursor( 0 , 0 );
+  
+  pinMode( BUZ , OUTPUT);
+  
+  pinMode( 8 , INPUT); //y
+  pinMode( BUZ , OUTPUT);
+  
+}
+
+void loop()
+{
+  //LCD.setCursor(6 ,0);
+  //LCD.print("UwU");
+  //delay(5000);
+  
+  B = digitalRead( 8 );
+  
+  delay(1);
+  
+  
+  
+  
+  LCD.clear();
+  digitalWrite(trig,HIGH);
+  delay(1);
+  digitalWrite(trig,LOW);
+  tiempo=pulseIn(eco,HIGH);
+  distancia=tiempo/50.2;
+  
+  Serial.println( B );
+  
+  if ( B == HIGH ){
+  
+    if (distancia > 150 ){
+    	analogWrite(10 , 0);
+   		analogWrite(9 , 255);
+        analogWrite(11 , 0);
+      	
+      	EstadoAlarma = 1 ;
+      	
+    }else if (distancia > 50 && distancia < 150){
+    	analogWrite(10 , 255);
+   		analogWrite(9 , 100);
+      
+        analogWrite(11 , 20);
+    	delay(500);
+      	analogWrite(11, 0);
+      	delay(500);
+      
+      	EstadoAlarma = 2 ;
+      	
+    }else{
+    	analogWrite(10 , 255);
+   		analogWrite(9 , 0);
+        
+      	analogWrite(11 , 200);
+    	delay(50);
+      	analogWrite(11, 0);
+      	delay(50);
+    	
+      	EstadoAlarma = 3 ;
+    
+    
+    }
+    
+    
+  
+  }else{
+  	analogWrite(10 , 0);
+    analogWrite(9 , 0);
+  	analogWrite(11 , 0);
+    
+    EstadoAlarma = 0 ;
+  }
+  
+  
+  
+  LCD.print("Objeto a : ");
+  LCD.print(distancia);
+  LCD.print("CM ");
+  LCD.setCursor(1,1);
+  LCD.print("Alarma : ");
+  LCD.print( EstadoAlarma );
+  delay(500);
+  
+  
+  
+  
+}
+
+
+
+
