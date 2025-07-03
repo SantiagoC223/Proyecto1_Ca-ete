@@ -6,4 +6,6 @@ correo: santiago.ugazet32@gmail.com
 
 Docente : Gonzalo Consorti
 
-El Trabajo Se Encuentra En La Carpeta Derivada De Main "HEKO"
+E aqui el TP N°6: Neopixel
+
+Hay un textos mostrados en el monitor serial Los use solo para guiarme, algunos estan mal
