@@ -1,0 +1,335 @@
+#include <Adafruit_NeoPixel.h>
+#define NEOPIXEL 12
+#define NUMPIX 12
+Adafruit_NeoPixel pixeles = Adafruit_NeoPixel( NUMPIX , NEOPIXEL , NEO_RGB + NEO_KHZ800 );
+
+int Rojo = 0 ;
+int Azul = 0 ;
+int Verde = 0 ;
+
+void setup()
+{
+  pinMode( NEOPIXEL , OUTPUT);
+  
+  pixeles.begin();
+  
+  pixeles.setBrightness(255);
+  
+  Serial.begin(9600);
+  
+}
+
+void loop()
+{
+    
+  
+  
+  pixeles.setPixelColor(0, pixeles.Color(255, 0, 0));//  Rojo
+  pixeles.show();
+  Serial.println(" 1 led");
+  delay(500);
+  
+  
+  pixeles.setPixelColor(0, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(1, pixeles.Color(0, 255, 0));  // Verde
+  pixeles.show();
+  Serial.println(" 2 led");
+  delay(500);
+  
+  
+  pixeles.setPixelColor(1, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(2, pixeles.Color(0, 0, 255));  //   Azul
+  pixeles.show();
+  Serial.println("3 led");
+  delay(500);
+  
+  
+  pixeles.setPixelColor(2, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(3, pixeles.Color(255, 255, 0));  // -Amarillo
+  pixeles.show();
+  Serial.println("4 led");
+  delay(500);
+  
+  
+  pixeles.setPixelColor(3, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(4, pixeles.Color(255, 0, 255));  // Magenta
+  pixeles.show();
+  Serial.println("5 led");
+  delay(500);
+  
+  
+  
+  pixeles.setPixelColor(4, pixeles.Color( 0 , 0, 0));
+  pixeles.setPixelColor(5, pixeles.Color(0, 255, 255));  //  Cyan
+  pixeles.show();
+  Serial.println("6 led");
+  delay(500);
+  
+  
+  
+  pixeles.setPixelColor(5, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(6, pixeles.Color(255, 255, 255)); //  Blanco
+  pixeles.show();
+  Serial.println("7 led");
+  delay(500);
+  
+  pixeles.setPixelColor(6 , pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 7 , pixeles.Color(255, 128, 0));   // Naranja
+  pixeles.show();
+  Serial.println("8 led");
+  delay(500);
+
+  pixeles.setPixelColor(7 , pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 8 , pixeles.Color(128, 0, 255));   //  Violeta
+  pixeles.show();
+  Serial.println("9 led");
+  delay(500);
+  
+  
+  pixeles.setPixelColor(8, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 9 , pixeles.Color(139, 69, 19)); // Marrón
+  pixeles.show();
+  Serial.println("10 led");
+  delay(500);
+  
+  
+  pixeles.setPixelColor(9, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 10 , pixeles.Color(100, 100, 100)); // Gris
+  pixeles.show();
+  Serial.println("11 led");
+  delay(500);
+  
+  
+  pixeles.setPixelColor(10, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 11 , pixeles.Color(0, 128, 128));   //  Turquesa 
+  pixeles.show();
+  Serial.println("12 led");
+  delay(500);
+  
+  
+  delay(1000); 
+  pixeles.clear();
+  pixeles.show();
+  
+   // Seginda PArte /////////////////////////////////////////////////////
+  
+  pixeles.setPixelColor(0, pixeles.Color(255, 0, 0));//  Rojo
+  pixeles.show();
+  Serial.println(" 1 led");
+  delay(100);
+  
+  
+  pixeles.setPixelColor(0, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(1, pixeles.Color(0, 255, 0));  // Verde
+  pixeles.show();
+  Serial.println(" 2 led");
+  delay(100);
+  
+  
+  pixeles.setPixelColor(1, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(2, pixeles.Color(0, 0, 255));  //   Azul
+  pixeles.show();
+  Serial.println("3 led");
+  delay(100);
+  
+  
+  pixeles.setPixelColor(2, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(3, pixeles.Color(255, 255, 0));  // -Amarillo
+  pixeles.show();
+  Serial.println("4 led");
+  delay(100);
+  
+  
+  pixeles.setPixelColor(3, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(4, pixeles.Color(255, 0, 255));  // Magenta
+  pixeles.show();
+  Serial.println("5 led");
+  delay(100);
+  
+  
+  
+  pixeles.setPixelColor(4, pixeles.Color( 0 , 0, 0));
+  pixeles.setPixelColor(5, pixeles.Color(0, 255, 255));  //  Cyan
+  pixeles.show();
+  Serial.println("6 led");
+  delay(100);
+  
+  
+  
+  pixeles.setPixelColor(5, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(6, pixeles.Color(255, 255, 255)); //  Blanco
+  pixeles.show();
+  Serial.println("7 led");
+  delay(100);
+  
+  pixeles.setPixelColor(6 , pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 7 , pixeles.Color(255, 128, 0));   // Naranja
+  pixeles.show();
+  Serial.println("8 led");
+  delay(100);
+
+  pixeles.setPixelColor(7 , pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 8 , pixeles.Color(128, 0, 255));   //  Violeta
+  pixeles.show();
+  Serial.println("9 led");
+  delay(100);
+  
+  
+  pixeles.setPixelColor(8, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 9 , pixeles.Color(139, 69, 19)); // Marrón
+  pixeles.show();
+  Serial.println("10 led");
+  delay(100);
+  
+  
+  pixeles.setPixelColor(9, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 10 , pixeles.Color(100, 100, 100)); // Gris
+  pixeles.show();
+  Serial.println("11 led");
+  delay(100);
+  
+  
+  pixeles.setPixelColor(10, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 11 , pixeles.Color(0, 128, 128));   //  Turquesa 
+  pixeles.show();
+  Serial.println("12 led");
+  delay(100);
+  
+  pixeles.setPixelColor(11, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 10 , pixeles.Color(100, 100, 100));   //  Turquesa 
+  pixeles.show();
+  Serial.println("12 led");
+  delay(100);
+  
+  pixeles.setPixelColor(10, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 9 , pixeles.Color(139, 69, 19));   //  Turquesa 
+  pixeles.show();
+  Serial.println("12 led");
+  delay(100);
+  
+  pixeles.setPixelColor( 9 , pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 8 , pixeles.Color(128, 0, 255));   //  Turquesa 
+  pixeles.show();
+  Serial.println("12 led");
+  delay(100);
+  
+  pixeles.setPixelColor( 8 , pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor( 7 , pixeles.Color(255, 128, 0));   //  Turquesa 
+  pixeles.show();
+  Serial.println("12 led");
+  delay(100);
+  
+  pixeles.setPixelColor(7, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(6, pixeles.Color(255, 255, 255)); //  Blanco
+  pixeles.show();
+  Serial.println("7 led");
+  delay(100);
+  
+  pixeles.setPixelColor(6, pixeles.Color( 0 , 0, 0));
+  pixeles.setPixelColor(5, pixeles.Color(0, 255, 255));  //  Cyan
+  pixeles.show();
+  Serial.println("6 led");
+  delay(100);
+  
+  pixeles.setPixelColor(5, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(4, pixeles.Color(255, 0, 255));  // Magenta
+  pixeles.show();
+  Serial.println("5 led");
+  delay(100);
+  
+  pixeles.setPixelColor(4, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(3, pixeles.Color(255, 255, 0));  // -Amarillo
+  pixeles.show();
+  Serial.println("4 led");
+  delay(100);
+  
+  pixeles.setPixelColor(3, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(2, pixeles.Color(0, 0, 255));  //   Azul
+  pixeles.show();
+  Serial.println("3 led");
+  delay(100);
+  
+  pixeles.setPixelColor(2, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(1, pixeles.Color(0, 255, 0));  // Verde
+  pixeles.show();
+  Serial.println(" 2 led");
+  delay(100);
+  
+  pixeles.setPixelColor(1, pixeles.Color(0, 0, 0));
+  pixeles.setPixelColor(0, pixeles.Color(255, 0, 0));//  Rojo
+  pixeles.show();
+  Serial.println(" 1 led");
+  delay(100);
+  
+  delay(1000); 
+  pixeles.clear();
+  pixeles.show();
+  
+  
+  
+  delay(1000); 
+  // Tercera parte PArte /////////////////////////////////////////////////////
+  
+  
+  
+  Rojo = random(1 , 255);
+  Azul = random(1 , 255);
+  Verde = random(1 , 255);
+  
+  pixeles.setPixelColor( 0 , pixeles.Color( Rojo , Azul , Verde ) );
+  pixeles.setPixelColor( 2 , pixeles.Color( Rojo , Azul , Verde ) );
+  pixeles.setPixelColor( 4 , pixeles.Color( Rojo , Azul , Verde ) );
+  pixeles.setPixelColor( 6 , pixeles.Color( Rojo , Azul , Verde ) );
+  pixeles.setPixelColor( 8 , pixeles.Color( Rojo , Azul , Verde ) );
+  pixeles.setPixelColor( 10 , pixeles.Color( Rojo , Azul , Verde ) );
+  
+  pixeles.show();
+  Serial.println("Pares");
+  
+  
+  delay(500); 
+  
+  pixeles.clear();
+  pixeles.show();
+  
+  Rojo = random(1 , 255);
+  Azul = random(1 , 255);
+  Verde = random(1 , 255);
+  
+  pixeles.setPixelColor( 1 , pixeles.Color( Rojo , Azul , Verde ) );
+  pixeles.setPixelColor( 3 , pixeles.Color( Rojo , Azul , Verde ) );
+  pixeles.setPixelColor( 5 , pixeles.Color( Rojo , Azul , Verde ) );
+  pixeles.setPixelColor( 7 , pixeles.Color( Rojo , Azul , Verde ) );
+  pixeles.setPixelColor( 9 , pixeles.Color( Rojo , Azul , Verde ) );
+  pixeles.setPixelColor( 11 , pixeles.Color( Rojo , Azul , Verde ) );
+  pixeles.show();
+  Serial.println("IMPares");
+  
+  delay(1000); 
+  pixeles.clear();
+  pixeles.show();
+  
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
