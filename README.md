@@ -6,4 +6,4 @@ correo: santiago.ugazet32@gmail.com
 
 Docente : Gonzalo Consorti
 
-Aca el examen rpofe.
+Aca el examen profe, estuvo complicado.
