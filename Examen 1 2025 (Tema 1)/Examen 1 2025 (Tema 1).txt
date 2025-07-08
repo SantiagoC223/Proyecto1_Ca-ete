@@ -1,0 +1,121 @@
+#include <Adafruit_NeoPixel.h>
+#define NEOPIXEL 12
+#define NUMPIX 12
+Adafruit_NeoPixel pixeles = Adafruit_NeoPixel( NUMPIX , NEOPIXEL , NEO_RGB + NEO_KHZ800 );
+
+int Flex = A0 ;
+
+int LF = 0 ;
+
+int RD3 = 0 ;
+
+int PDL = 1 ;
+
+int B = 3 ;
+
+
+void setup()
+{
+  pinMode( NEOPIXEL , OUTPUT);
+  
+  pixeles.begin();
+  
+  pixeles.setBrightness(255);
+  
+  Serial.begin(9600);
+  
+  pinMode(B , OUTPUT);
+  
+  pinMode(Flex , OUTPUT);
+}
+
+void loop()
+{
+   
+  
+  int LF = analogRead( Flex );
+  int RD3 = map( LF , 1 , 1022 , 0 , 180 ) ;
+  PDL = constrain( RD3 , 0 , 180  );
+  Serial.println(PDL);
+  
+  
+  
+  
+  
+  if (PDL == 0){
+  	pixeles.setPixelColor(0, pixeles.Color(0, 0, 0));
+  	pixeles.setPixelColor(1, pixeles.Color(0, 0, 0));
+  	pixeles.setPixelColor(2, pixeles.Color(0, 0, 0));
+  	pixeles.setPixelColor(3, pixeles.Color(0, 0, 0));
+  	pixeles.setPixelColor(4, pixeles.Color( 0 , 0, 0));
+  	pixeles.setPixelColor(5, pixeles.Color(0, 0, 0));
+  	pixeles.setPixelColor(6 , pixeles.Color(0, 0, 0));
+  	pixeles.setPixelColor(7 , pixeles.Color(0, 0, 0));
+  	pixeles.setPixelColor(8, pixeles.Color(0, 0, 0));
+  	pixeles.setPixelColor(9, pixeles.Color(0, 0, 0)); 
+  	pixeles.setPixelColor(10, pixeles.Color(0, 0, 0));
+  	pixeles.setPixelColor( 11 , pixeles.Color(0, 0, 0));   //  Turquesa 
+ 	analogWrite(3 , 0);
+    
+  }else if(PDL >= 0 && PDL <= 10){
+  Serial.println("aaa");
+  	pixeles.setPixelColor(0, pixeles.Color(0, 255, 0));
+  	pixeles.show();
+  	delay(500);
+  
+  }else if(PDL > 10 && PDL < 20){
+  	pixeles.setPixelColor(1, pixeles.Color(0, 255, 0));
+  	pixeles.show();
+  	delay(500);
+  }else if(PDL > 20 && PDL < 30){
+  	pixeles.setPixelColor(2, pixeles.Color(0, 255, 0));
+  	pixeles.show();
+  	delay(500);
+  }else if(PDL > 30 && PDL < 40){
+  	pixeles.setPixelColor(3, pixeles.Color(0, 255, 0));
+  	pixeles.show();
+  	delay(500);
+  }else if(PDL > 40 && PDL < 50){
+  	pixeles.setPixelColor(4, pixeles.Color(0, 255, 0));
+  	pixeles.show();
+  	delay(500);
+  }else if(PDL > 50 && PDL < 60){
+  	pixeles.setPixelColor(5, pixeles.Color(0, 255, 0));
+  	pixeles.show();
+  	delay(500);
+  }else if(PDL > 60 && PDL < 70){
+  	pixeles.setPixelColor(6, pixeles.Color(255, 255, 0));
+  	pixeles.show();
+    analogWrite(3 , 100);
+  	delay(500);
+  }else if(PDL > 70 && PDL < 80){
+  	pixeles.setPixelColor(7, pixeles.Color(255, 255, 0));
+  	pixeles.show();
+    analogWrite(3 , 100);
+  	delay(500);
+  }else if(PDL > 80 && PDL < 90){
+  	pixeles.setPixelColor(8, pixeles.Color(255, 255, 0));
+  	pixeles.show();
+    analogWrite(3 , 100);
+  	delay(500);
+  }else if(PDL > 90 && PDL < 100){
+  	pixeles.setPixelColor(9, pixeles.Color(255, 255, 0));
+  	pixeles.show();
+    analogWrite(3 , 100);
+  	delay(500);
+  }else if(PDL > 100 && PDL < 110){
+  	pixeles.setPixelColor(10, pixeles.Color(255, 255, 0));
+  	pixeles.show();
+    analogWrite(3 , 100);
+  	delay(500);
+  }else if(PDL > 60 && PDL < 180){
+  	pixeles.setPixelColor(11, pixeles.Color(255, 0 , 0));
+  	pixeles.show();
+    analogWrite(3 , 150);
+  	delay(500);
+  }
+  
+}
+
+
+
