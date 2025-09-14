@@ -1,0 +1,203 @@
+#include <Adafruit_NeoPixel.h>
+
+#define NEOPIX 3
+
+#define cantNeo 24
+
+Adafruit_NeoPixel pixel = Adafruit_NeoPixel( cantNeo , NEOPIX ,NEO_GRB + NEO_KHZ800 );
+
+int boton = 2;
+int estado = 0;
+
+void setup() {
+  pinMode(boton, INPUT);   // ahora depende de resistencia externa
+  pixel.begin();
+  pixel.show(); 
+  Serial.begin(9800);
+  pinMode(4,OUTPUT);
+}
+
+void loop() {
+ // PLan : Usando las 4 tiras, mostrar cada numero, 
+ // los numeros se muestran en los 2 grupos de 12 leds
+ // que hay,
+ // si la suma de ambos dados da 7, animacion
+  
+  if (digitalRead(boton) == HIGH) {   // si presiona
+    delay(200);                       // anti-rebote básico
+    estado = !estado;                 // alterna estado
+    while (digitalRead(boton) == HIGH); // espera a soltar
+  }
+
+  if ( estado ) {
+    //Esto pasa solo una vez, se hace y queda de esa manera 
+    //hasta que el botos en presionado por segunda vez 
+    
+    int dado1 = random(1,6);
+    int dado2 = random(1,6);
+    
+    if (dado1 == 1){
+      	Serial.println(" dado1 = 1");
+    	pixel.clear();
+    	pixel.setPixelColor(0,pixel.Color(255,0,0));
+    	pixel.show();
+    }else if(dado1 == 2){
+		pixel.clear();
+    	pixel.setPixelColor(0,pixel.Color(255,0,0));
+        pixel.setPixelColor(1,pixel.Color(255,0,0));
+    	pixel.show();
+    }else if(dado1 == 3){
+    	pixel.clear();
+    	pixel.setPixelColor(0,pixel.Color(255,0,0));
+        pixel.setPixelColor(1,pixel.Color(255,0,0));
+      	pixel.setPixelColor(2,pixel.Color(255,0,0));
+    	pixel.show();
+    }else if (dado1 == 4){
+    	pixel.clear();
+    	pixel.setPixelColor(0,pixel.Color(255,0,0));
+        pixel.setPixelColor(1,pixel.Color(255,0,0));
+      	pixel.setPixelColor(2,pixel.Color(255,0,0));
+      	pixel.setPixelColor(6,pixel.Color(255,0,0));
+    	pixel.show();
+    }else if (dado1 == 5){
+    	pixel.clear();
+    	pixel.setPixelColor(0,pixel.Color(255,0,0));
+        pixel.setPixelColor(1,pixel.Color(255,0,0));
+      	pixel.setPixelColor(2,pixel.Color(255,0,0));
+      	pixel.setPixelColor(6,pixel.Color(255,0,0));
+      	pixel.setPixelColor(7,pixel.Color(255,0,0));
+    	pixel.show();
+    }else{
+    	pixel.clear();
+    	pixel.setPixelColor(0,pixel.Color(255,0,0));
+        pixel.setPixelColor(1,pixel.Color(255,0,0));
+      	pixel.setPixelColor(2,pixel.Color(255,0,0));
+      	pixel.setPixelColor(6,pixel.Color(255,0,0));
+      	pixel.setPixelColor(7,pixel.Color(255,0,0));
+      	pixel.setPixelColor(8,pixel.Color(255,0,0));
+    	pixel.show();
+    }//Fin dado 1
+    
+    if (dado2 == 1){
+    	pixel.setPixelColor(3,pixel.Color(0,255,0));
+    	pixel.show();
+    }else if(dado2 == 2){
+    	pixel.setPixelColor(3,pixel.Color(0,255,0));
+        pixel.setPixelColor(4,pixel.Color(0,255,0));
+    	pixel.show();
+    }else if(dado2 == 3){
+    	pixel.setPixelColor(3,pixel.Color(0,255,0));
+        pixel.setPixelColor(4,pixel.Color(0,255,0));
+      	pixel.setPixelColor(5,pixel.Color(0,255,0));
+    	pixel.show();
+    }else if (dado2 == 4){
+    	pixel.setPixelColor(3,pixel.Color(0,255,0));
+        pixel.setPixelColor(4,pixel.Color(0,255,0));
+      	pixel.setPixelColor(5,pixel.Color(0,255,0));
+      	pixel.setPixelColor(9,pixel.Color(0,255,0));
+    	pixel.show();
+    }else if (dado2 == 5){
+    	pixel.setPixelColor(3,pixel.Color(0,255,0));
+        pixel.setPixelColor(4,pixel.Color(0,255,0));
+      	pixel.setPixelColor(5,pixel.Color(0,255,0));
+      	pixel.setPixelColor(9,pixel.Color(0,255,0));
+      	pixel.setPixelColor(10,pixel.Color(0,255,0));
+    	pixel.show();
+    }else{
+    	pixel.setPixelColor(3,pixel.Color(0,255,0));
+        pixel.setPixelColor(4,pixel.Color(0,255,0));
+      	pixel.setPixelColor(5,pixel.Color(0,255,0));
+      	pixel.setPixelColor(9,pixel.Color(0,255,0));
+      	pixel.setPixelColor(10,pixel.Color(0,255,0));
+      	pixel.setPixelColor(11,pixel.Color(0,255,0));
+    	pixel.show();
+    }//Fin dado 2
+    
+    
+    delay(3000);
+    pixel.clear();
+    pixel.show();
+    
+    if( (dado1 + dado2) == 7 ){
+		pixel.setPixelColor(0,pixel.Color(0,0,255));
+        pixel.setPixelColor(2,pixel.Color(0,0,255));
+      	pixel.setPixelColor(4,pixel.Color(0,0,255));
+      	pixel.setPixelColor(6,pixel.Color(0,0,255));
+      	pixel.setPixelColor(8,pixel.Color(0,0,255));
+      	pixel.setPixelColor(10,pixel.Color(0,0,255));
+      	pixel.setPixelColor(12,pixel.Color(0,0,255));
+        pixel.setPixelColor(14,pixel.Color(0,0,255));
+      	pixel.setPixelColor(16,pixel.Color(0,0,255));
+      	pixel.setPixelColor(18,pixel.Color(0,0,255));
+      	pixel.setPixelColor(20,pixel.Color(0,0,255));
+      	pixel.setPixelColor(22,pixel.Color(0,0,255));
+      	pixel.setPixelColor(24,pixel.Color(0,0,255));
+    	pixel.show();
+      	tone(4,1050);
+        delay(500);
+        pixel.clear();
+      	pixel.setPixelColor(1,pixel.Color(0,0,255));
+        pixel.setPixelColor(3,pixel.Color(0,0,255));
+      	pixel.setPixelColor(5,pixel.Color(0,0,255));
+      	pixel.setPixelColor(7,pixel.Color(0,0,255));
+      	pixel.setPixelColor(9,pixel.Color(0,0,255));
+      	pixel.setPixelColor(11,pixel.Color(0,0,255));
+      	pixel.setPixelColor(13,pixel.Color(0,0,255));
+        pixel.setPixelColor(15,pixel.Color(0,0,255));
+      	pixel.setPixelColor(17,pixel.Color(0,0,255));
+      	pixel.setPixelColor(19,pixel.Color(0,0,255));
+      	pixel.setPixelColor(21,pixel.Color(0,0,255));
+      	pixel.setPixelColor(23,pixel.Color(0,0,255));
+    	pixel.show();
+      	tone(4,200);
+        delay(500);
+      	pixel.clear();
+      	pixel.setPixelColor(0,pixel.Color(0,0,255));
+        pixel.setPixelColor(2,pixel.Color(0,0,255));
+      	pixel.setPixelColor(4,pixel.Color(0,0,255));
+      	pixel.setPixelColor(6,pixel.Color(0,0,255));
+      	pixel.setPixelColor(8,pixel.Color(0,0,255));
+      	pixel.setPixelColor(10,pixel.Color(0,0,255));
+      	pixel.setPixelColor(12,pixel.Color(0,0,255));
+        pixel.setPixelColor(14,pixel.Color(0,0,255));
+      	pixel.setPixelColor(16,pixel.Color(0,0,255));
+      	pixel.setPixelColor(18,pixel.Color(0,0,255));
+      	pixel.setPixelColor(20,pixel.Color(0,0,255));
+      	pixel.setPixelColor(22,pixel.Color(0,0,255));
+      	pixel.setPixelColor(24,pixel.Color(0,0,255));
+    	pixel.show();
+      	tone(4,1050);
+        delay(500);
+        pixel.clear();
+      	pixel.setPixelColor(1,pixel.Color(0,0,255));
+        pixel.setPixelColor(3,pixel.Color(0,0,255));
+      	pixel.setPixelColor(5,pixel.Color(0,0,255));
+      	pixel.setPixelColor(7,pixel.Color(0,0,255));
+      	pixel.setPixelColor(9,pixel.Color(0,0,255));
+      	pixel.setPixelColor(11,pixel.Color(0,0,255));
+      	pixel.setPixelColor(13,pixel.Color(0,0,255));
+        pixel.setPixelColor(15,pixel.Color(0,0,255));
+      	pixel.setPixelColor(17,pixel.Color(0,0,255));
+      	pixel.setPixelColor(19,pixel.Color(0,0,255));
+      	pixel.setPixelColor(21,pixel.Color(0,0,255));
+      	pixel.setPixelColor(23,pixel.Color(0,0,255));
+    	pixel.show();
+      	tone(4,200);
+        delay(500);
+      	pixel.clear();
+      	pixel.show();
+      	noTone(4);
+      
+    }else{
+    	//lol
+    }//fiN EN CASO DE QUE DE 7
+    
+    
+    ///////////
+  }else{
+    //Lo que pasa cuando no esta presionado
+    Serial.println("Sin presionar");
+    pixel.clear();
+    pixel.show();
+  }
+}
