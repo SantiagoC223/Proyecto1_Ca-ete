@@ -1,0 +1,78 @@
+// Declaraciones
+#define ARRAY_LEN(array) (sizeof(array) / sizeof(array[0]))
+#define B5 988
+#define Ab5 932
+#define Fb6 1480
+#define A5 880
+#define Gb5 831
+#define G6 1568
+#define F6 1397
+#define Db6 1245
+#define C6 1047
+#define D6 1175
+#define E6 1319
+
+// el pin del buzzer es pin para 
+//concordar a como lo hace la pagina 
+int pin = 2 ;
+
+
+//Notas
+const int midi1[31][3] = {
+ {B5, 833, 500},
+ {B5, 167, 0},
+ {Ab5, 167, 0},
+ {B5, 167, 0},
+ {Fb6, 167, 0},
+ {Fb6, 167, 0},
+ {Ab5, 167, 0},
+ {B5, 1000, 500},
+ {B5, 167, 0},
+ {Ab5, 167, 0},
+ {A5, 167, 0},
+ {Gb5, 333, 0},
+ {Ab5, 333, 0},
+ {B5, 167, 0},
+ {Ab5, 167, 0},
+ {B5, 167, 0},
+ {Fb6, 500, 0},
+ {Fb6, 167, 0},
+ {G6, 167, 0},
+ {Fb6, 333, 0},
+ {F6, 167, 0},
+ {Db6, 500, 0},
+ {C6, 333, 0},
+ {D6, 333, 167},
+ {A5, 333, 167},
+ {D6, 333, 0},
+ {E6, 667, 0},
+ {G6, 167, 0},
+ {E6, 167, 0},
+ {D6, 667, 0},
+ {B5, 667, 0},
+};
+
+void playMidi(int pin, const int notes[][3], size_t len){
+ for (int i = 0; i < len; i++) {
+    tone(pin, notes[i][0]);
+    delay(notes[i][1]);
+    noTone(pin);
+    delay(notes[i][2]);
+  }
+}
+
+void setup() {
+  //El comando para ejecutar la melodia es este :
+  //playMidi(2, midi1, ARRAY_LEN(midi1));
+  //Lo cambie al llop para que se repita infinitamente
+}
+
+void loop() {
+  // Musica con un pequeño delay para repetirse con el tiempo.
+  playMidi(2, midi1, ARRAY_LEN(midi1));
+  delay(2000);
+}
+
+// Como seguir con el trabajo : 
+// como yo averiguar el final.
+
