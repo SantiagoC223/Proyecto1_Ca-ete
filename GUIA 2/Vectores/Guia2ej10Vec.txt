@@ -1,0 +1,44 @@
+void setup()
+{
+  pinMode( 3 , OUTPUT);
+  Serial.begin(9800);
+}
+
+void loop()
+{
+  
+  int vector[10] ={0,0,0,0,0,0,0,0,0,0} ;
+  
+  for (int i = 0 ; i < 10 ; i++){
+  	int cambio = random(1,10) ;
+  	vector[i] = cambio ;
+  }
+  
+  for (int j = 0 ; j < 10 ; j++){
+  	Serial.print(vector[j]);
+    Serial.print(" , ");
+    
+  }
+  
+  Serial.println(" ");
+  Serial.println(" ");
+  
+  delay(1000);
+  
+  for (int k = 0 ; k < 10 ; k++){
+    if (vector[k] == 5){
+    	analogWrite(3,150);
+      	delay(1000);
+      	analogWrite(3,0);
+      	delay(1000);
+    
+    }else{
+    
+    }
+    
+  }
+  
+  
+  
+  
+}//Fin Loop

@@ -1,0 +1,52 @@
+int Rojo = 2 ;
+int Azul = 3 ;
+int Verde = 4 ;
+
+
+
+void setup()
+{
+  pinMode(Rojo, OUTPUT);
+  pinMode(Azul, OUTPUT);
+  pinMode(Verde, OUTPUT);
+}
+
+void loop()
+{
+  int L1[3] = {122 , 234 , 21} ;
+  int L2[3] = {33  , 53  , 155} ;
+  int L3[3] = {200 , 255 , 12} ;
+
+  
+  analogWrite(Rojo, L1[1]);
+  analogWrite(Azul, L1[2]);
+  analogWrite(Verde, L1[3]);
+  
+  delay(1000);
+  
+  analogWrite(Rojo,0);
+  analogWrite(Azul,0);
+  analogWrite(Verde,0);
+  
+  delay(1000);
+  
+  analogWrite(Rojo, L2[1]);
+  analogWrite(Azul, L2[2]);
+  analogWrite(Verde, L2[3]);
+  
+  delay(1000);
+  
+  analogWrite(Rojo,0);
+  analogWrite(Azul,0);
+  analogWrite(Verde,0);
+  
+  delay(1000);
+  
+  analogWrite(Rojo, L3[1]);
+  analogWrite(Azul, L3[2]);
+  analogWrite(Verde, L3[3]);
+  delay(1000);
+  
+}
+
+

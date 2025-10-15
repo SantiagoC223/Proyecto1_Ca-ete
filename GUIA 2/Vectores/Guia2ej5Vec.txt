@@ -1,0 +1,39 @@
+int Vector[] = { 1, 0 ,0 ,1, 1, 0, 1,1} ;  
+
+int Vector2[] = { 0, 1 ,0 ,1, 0, 0, 1,0} ;
+
+
+
+int i = 0 ;
+
+void setup()
+{
+  pinMode( 2 , OUTPUT);
+  pinMode( 3 , OUTPUT);
+  
+}
+
+void loop()
+{
+  digitalWrite( 2 , Vector[0]);
+  digitalWrite( 3 , Vector2[0]);
+  delay(1000); 
+  digitalWrite( 2 , Vector[1]);
+  digitalWrite( 3 , Vector2[1]);
+  delay(1000); 
+  digitalWrite( 2 , Vector[2]);
+  digitalWrite( 3 , Vector2[2]);
+  delay(1000);
+  digitalWrite( 2 , Vector[3]);
+  digitalWrite( 3 , Vector2[3]);
+  delay(1000);
+  digitalWrite( 2 , Vector[4]);
+  digitalWrite( 3 , Vector2[4]);
+  delay(1000);
+  digitalWrite( 2 , Vector[5]);
+  digitalWrite( 3 , Vector2[5]);
+  delay(1000);
+  digitalWrite( 2 , Vector[6]);
+  digitalWrite( 3 , Vector2[6]);
+  delay(1000); 
+}
